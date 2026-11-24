@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AppName</title>
+  <link rel="stylesheet" href="sguardo.css">
+  <!-- Per-app accent: one line. -->
+  <style>:root { --accent: #3499ff; }</style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <section class="sg-section sg-container" style="padding-top: clamp(120px, 16vw, 220px)">
+    <p class="sg-eyebrow sg-reveal">New in 1.0</p>
+    <h1 class="sg-display sg-two-tone sg-reveal">AppName <span class="m">does one thing,</span><br>beautifully.</h1>
+    <p class="sg-lead sg-reveal" style="max-width: 40ch; margin-top: 20px">One sentence that says what the app does and why it is better than the alternative.</p>
+    <div class="sg-cta sg-reveal" style="margin-top: 32px">
+      <a class="sg-btn sg-btn--ink" href="#download">Download for Mac</a>
+      <a class="sg-btn sg-btn--secondary" href="#">GitHub</a>
+      <span class="sg-micro sg-cta-caption">macOS 14 Sonoma+</span>
+    </div>
+  </section>
+
+  <!-- Feature bento -->
+  <section class="sg-section sg-container">
+    <h2 class="sg-h1 sg-two-tone sg-reveal" style="margin-bottom: 40px"><span class="m">With the</span> convenience<br><span class="m">and</span> design <span class="m">of your</span> Mac</h2>
+    <div class="sg-bento">
+      <article class="sg-card sg-card--wide sg-reveal">
+        <h3 class="sg-card__title">Lives in the menu bar</h3>
+        <p class="sg-card__text">Short supporting line. Keep it under two lines.</p>
+      </article>
+      <article class="sg-card sg-card--narrow sg-card--dark sg-reveal">
+        <h3 class="sg-card__title">Native app</h3>
+        <p class="sg-card__text">SwiftUI, light and dark, Liquid Glass on macOS 26.</p>
+      </article>
+      <article class="sg-card sg-card--narrow sg-reveal">
+        <h3 class="sg-card__title">Private</h3>
+        <p class="sg-card__text">Runs entirely on your Mac.</p>
+      </article>
+      <article class="sg-card sg-card--wide sg-card--media sg-reveal" aria-label="Product screenshot"></article>
+    </div>
+  </section>
+
+  <!-- Dark trust section -->
+  <section class="sg-dark">
+    <div class="sg-section sg-container">
+      <h2 class="sg-h1 sg-two-tone sg-reveal">Privacy <span class="m">first.</span><br><span class="m">Your data stays on your Mac. You stay in</span> control.</h2>
+      <div class="sg-bento" style="margin-top: 48px">
+        <article class="sg-card sg-card--dark sg-feature sg-reveal" style="grid-column: span 4">
+          <p class="sg-feature__label">Completely offline.</p>
+          <p class="sg-feature__claim">Nothing leaves your Mac.</p>
+        </article>
+        <article class="sg-card sg-card--dark sg-feature sg-reveal" style="grid-column: span 4">
+          <p class="sg-feature__label">Open source.</p>
+          <p class="sg-feature__claim">Read every line.</p>
+        </article>
+        <article class="sg-card sg-card--dark sg-feature sg-reveal" style="grid-column: span 4">
+          <p class="sg-feature__label">Keychain.</p>
+          <p class="sg-feature__claim">Native, safe, and secure.</p>
+        </article>
+        <article class="sg-card sg-card--full sg-card--accent sg-reveal">
+          <h3 class="sg-h2">The one message that must not be missed.</h3>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Closing CTA -->
+  <section class="sg-section sg-container" id="download" style="padding-bottom: 200px">
+    <h2 class="sg-h1 sg-reveal">AppName is<br>open-source.</h2>
+    <div class="sg-cta sg-reveal" style="margin-top: 24px">
+      <a class="sg-btn sg-btn--ink" href="#">Download for Mac</a>
+      <a class="sg-btn sg-btn--secondary" href="#">GitHub</a>
+    </div>
+  </section>
+
+  <!-- Floating bottom nav -->
+  <nav class="sg-nav" aria-label="Main">
+    <a class="sg-nav__brand" href="#">AppName</a>
+    <div class="sg-nav__group">
+      <a class="sg-nav__link" href="#">Design</a>
+      <a class="sg-nav__link" href="#">Privacy</a>
+      <a class="sg-nav__link sg-nav__link--primary" href="#download">Download</a>
+    </div>
+  </nav>
+
+  <script src="sguardo.js"></script>
+</body>
+</html>

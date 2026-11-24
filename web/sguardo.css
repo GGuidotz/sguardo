@@ -1,0 +1,180 @@
+/* Sguardo web kit. Mirrors tokens/tokens.json. Set --accent per app (one line). */
+
+:root {
+  /* accent: override --accent only; the ramp derives from it */
+  --accent: #3499ff;
+  --accent-pale: color-mix(in srgb, var(--accent) 25%, white);
+  --accent-bright: color-mix(in srgb, var(--accent) 60%, white);
+  --accent-deep: color-mix(in srgb, var(--accent) 70%, black);
+  --accent-wash: color-mix(in srgb, var(--accent) 12%, transparent);
+
+  /* page */
+  --bg: #fbfdff;
+  --fg: #071727;
+  --ink: #000;
+  --muted-ink: rgba(15, 23, 31, 0.42);
+  --muted-caption: rgba(15, 23, 31, 0.23);
+  --panel-muted: #edeff1;
+  --panel-dark: #0f171f;
+  --panel-dashed: #acb8c3;
+  --btn-secondary: #eeeeef;
+  --btn-secondary-text: #313131;
+  --nav-pill: rgba(234, 234, 234, 0.75);
+  --nav-pill-border: rgba(255, 252, 252, 0.25);
+  --nav-text: rgba(49, 49, 49, 0.89);
+  --dark-bg: #09090a;
+  --dark-card: #1b1c1d;
+  --dark-muted: #7e848b;
+  --muted-ink-inverse: rgba(255, 255, 255, 0.47);
+
+  /* status */
+  --success: #30d158;
+  --danger: #ff453a;
+  --destructive: #e03b2f;
+  --warning: #ffbe54;
+
+  /* type */
+  --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+  --fs-display: clamp(46px, 5.3vw, 80px);
+  --fs-h1: clamp(36px, 4.16vw, 60px);
+  --fs-h2: clamp(24px, 3.33vw, 40px);
+  --fs-h3: clamp(18px, 2.16vw, 26px);
+  --fs-lead: clamp(15px, 1.66vw, 20px);
+  --fs-body: 16px;
+  --fs-small: 14px;
+  --fs-micro: 12px;
+  --tracking-tight: -0.02em;
+
+  /* shape */
+  --r-pill: 999px;
+  --r-chip: 12px;
+  --r-card: clamp(28px, 4.33vw, 52px);
+  --r-card-sm: clamp(20px, 2.9vw, 44px);
+  --r-row: 16px;
+  --r-tile: 13px;
+
+  /* space & layout */
+  --gutter: clamp(16px, 4.2vw, 60px);
+  --site-max: 1160px;
+  --site-width: min(var(--site-max), calc(100% - 2 * var(--gutter)));
+  --section-gap: clamp(96px, 12vw, 180px);
+
+  /* elevation & motion */
+  --shadow: 0 10px 28px rgba(7, 23, 39, 0.1);
+  --shadow-nav: 0 -12px 40px rgba(7, 23, 39, 0.16);
+  --ease: cubic-bezier(.16, 1, .3, 1);
+  --ease-soft: cubic-bezier(.22, 1, .36, 1);
+  --dur-reveal: 0.9s;
+}
+
+/* ---------- base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: 400 var(--fs-body)/1.35 var(--font);
+  -webkit-font-smoothing: antialiased;
+}
+.sg-container { width: var(--site-width); margin-inline: auto; }
+.sg-section { padding-block: calc(var(--section-gap) / 2); }
+
+/* ---------- type ---------- */
+.sg-display, .sg-h1, .sg-h2 { font-weight: 700; line-height: 1.025; letter-spacing: var(--tracking-tight); margin: 0; }
+.sg-display { font-size: var(--fs-display); }
+.sg-h1 { font-size: var(--fs-h1); }
+.sg-h2 { font-size: var(--fs-h2); }
+.sg-h3 { font-size: var(--fs-h3); font-weight: 600; line-height: 1.1; letter-spacing: var(--tracking-tight); margin: 0; }
+.sg-lead { font-size: var(--fs-lead); font-weight: 500; line-height: 1.3; letter-spacing: -0.01em; color: var(--muted-ink); margin: 0; }
+.sg-eyebrow { font-size: var(--fs-small); font-weight: 500; color: var(--accent); }
+.sg-micro { font-size: var(--fs-micro); font-weight: 500; color: var(--muted-caption); }
+/* two-tone headline: wrap muted words in .m */
+.sg-two-tone .m { color: var(--muted-caption); }
+.sg-dark .sg-two-tone .m { color: var(--muted-ink-inverse); }
+
+/* ---------- buttons ---------- */
+.sg-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  height: 44px; padding: 0 22px; border: 0; border-radius: var(--r-pill);
+  font: 500 var(--fs-small)/1 var(--font); letter-spacing: -0.32px;
+  cursor: pointer; text-decoration: none;
+  transition: transform .25s var(--ease), background-color .2s ease, opacity .2s ease;
+}
+.sg-btn:active { transform: scale(.97); }
+.sg-btn:focus-visible { outline: none; box-shadow: inset 0 0 0 1.5px var(--accent), 0 0 0 3px var(--accent-wash); }
+.sg-btn[disabled] { opacity: .4; pointer-events: none; }
+.sg-btn--ink { background: var(--ink); color: #fff; }
+.sg-btn--accent { background: var(--accent); color: #fff; }
+.sg-btn--secondary { background: var(--btn-secondary); color: var(--btn-secondary-text); }
+.sg-btn--sm { height: 32px; padding: 0 14px; font-size: 13px; }
+.sg-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.sg-cta-caption { width: 100%; margin-top: 4px; padding-left: 16px; }
+
+/* ---------- floating bottom nav ---------- */
+.sg-nav {
+  position: fixed; left: 50%; bottom: 16px; z-index: 50; transform: translateX(-50%);
+  display: flex; align-items: center; gap: 8px; max-width: calc(100% - 32px);
+}
+.sg-nav__brand, .sg-nav__group {
+  display: flex; align-items: center; gap: 6px; padding: 5px;
+  background: var(--nav-pill); border: 1px solid var(--nav-pill-border); border-radius: var(--r-pill);
+  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+}
+.sg-nav__brand { padding: 0 16px; height: 46px; font-size: 20px; font-weight: 500; letter-spacing: -0.02em; color: var(--nav-text); text-decoration: none; }
+.sg-nav__link {
+  display: inline-flex; align-items: center; gap: 6px; height: 36px; padding: 0 14px;
+  border-radius: var(--r-pill); background: #fff; color: var(--nav-text);
+  font-size: 13px; font-weight: 500; text-decoration: none;
+  transition: background-color .2s ease;
+}
+.sg-nav__link:hover { background: #f0f2f5; }
+.sg-nav__link--primary { background: var(--ink); color: #fff; }
+.sg-nav__link--primary:hover { background: #3e3f40; }
+.sg-nav__link svg { width: 14px; height: 14px; }
+
+/* ---------- cards & bento ---------- */
+.sg-bento { display: grid; grid-template-columns: repeat(12, 1fr); gap: clamp(12px, 1.5vw, 20px); }
+.sg-card {
+  grid-column: span 6; position: relative; overflow: hidden;
+  min-height: clamp(220px, 26vw, 360px); padding: clamp(24px, 3vw, 40px);
+  background: var(--panel-muted); border-radius: var(--r-card);
+}
+.sg-card--wide { grid-column: span 7; }
+.sg-card--narrow { grid-column: span 5; }
+.sg-card--full { grid-column: 1 / -1; }
+.sg-card--dark { background: var(--dark-card); color: #fff; }
+.sg-card--accent { background: var(--accent); color: #fff; }
+.sg-card--media { padding: 0; background: var(--video-surface, #d8e3ee); }
+.sg-card--media img, .sg-card--media video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.sg-card__title { font-size: var(--fs-h3); font-weight: 700; line-height: 1.1; letter-spacing: var(--tracking-tight); margin: 0 0 8px; }
+.sg-card__text { font-size: var(--fs-small); line-height: 1.35; color: var(--muted-ink); margin: 0; max-width: 34ch; }
+.sg-card--dark .sg-card__text { color: var(--dark-muted); }
+.sg-card--accent .sg-card__text { color: rgba(255,255,255,.78); }
+@media (max-width: 760px) {
+  .sg-card, .sg-card--wide, .sg-card--narrow { grid-column: 1 / -1; }
+}
+
+/* feature card in the dark section: accent label + white statement */
+.sg-feature { display: flex; flex-direction: column; gap: 18px; }
+.sg-feature__icon { width: 44px; height: 44px; color: var(--accent); }
+.sg-feature__label { color: var(--accent); font-size: var(--fs-h3); font-weight: 700; line-height: 1.1; letter-spacing: var(--tracking-tight); margin: 0; }
+.sg-feature__claim { color: #fff; font-size: var(--fs-h3); font-weight: 700; line-height: 1.1; letter-spacing: var(--tracking-tight); margin: 0; }
+
+/* ---------- dark section ---------- */
+.sg-dark { background: var(--dark-bg); color: #fff; }
+
+/* ---------- app-style rows (for web settings, dashboards) ---------- */
+.sg-group { background: #fff; border: 1px solid rgba(0,0,0,.08); border-radius: var(--r-row); overflow: hidden; }
+.sg-row { display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 10px 14px; font-size: 13px; }
+.sg-row + .sg-row { border-top: 1px solid rgba(0,0,0,.08); margin-left: 14px; padding-left: 0; }
+.sg-row__sub { display: block; font-size: 11px; color: var(--muted-ink); max-width: 260px; margin-top: 2px; }
+.sg-row__trail { margin-left: auto; }
+
+/* ---------- scroll reveal (add .sg-reveal; JS adds .is-in) ---------- */
+.sg-reveal { opacity: 0; filter: blur(12px); transform: translateY(20px);
+  transition: opacity var(--dur-reveal) var(--ease), filter var(--dur-reveal) var(--ease), transform var(--dur-reveal) var(--ease); }
+.sg-reveal.is-in { opacity: 1; filter: none; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .sg-reveal { opacity: 1; filter: none; transform: none; transition: none; }
+}
