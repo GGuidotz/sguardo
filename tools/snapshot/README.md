@@ -6,6 +6,11 @@ offscreen window is never key, so AppKit draws controls inactive) and materials 
 
 1. Copy `Harness.example.swift` to a scratch folder (never inside the app repo) and replace the screens with the app's
    root views. Do not call launch hooks that write the person's real data (history files, prefs, notifications).
+   **Before the first run, make the app read only invented data.** `HOME` does not redirect everything: Application
+   Support paths resolved by `FileManager`, iCloud containers and app groups can still point at the person's real files.
+   Find every store the screens load (notes, history, settings files, keychain) and, in a scratch copy of the sources,
+   replace its location or contents with sample data. Never let a run read the person's notes, documents or history,
+   even read-only; if one did, say so in the report.
 2. Compile the app's sources except its `@main` file, plus Sguardo and the harness:
 
    ```bash
